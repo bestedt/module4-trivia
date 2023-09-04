@@ -26,4 +26,4 @@ SO THAT I can gauge my progress compared to my peers
 
 ## Deployed Link
 
-
+https://bestedt.github.io/module4-trivia/

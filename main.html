@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia Quiz!</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<!-- Main body starts here  -->
+<body>
+    <!-- Div class box to keep the quiz together -->
+    <div class="box">
+        <!-- Link to the high score page -->
+        <a href="highscore.html" id="highscore-link">High Scores</a>
+        <h1>Test Your Coding Knowledge!</h1>
+        <hr>
+        <!-- Start game button -->
+        <button id="start-game-button">Start Quiz</button>
+        <!-- Quiz class set, is hidden until the start button is chosen -->
+        <div class="quiz">
+            <!-- stock holder for the questions and answers, they're all within an array in the script -->
+            <h2 id="question">Insert Question</h2>
+            <div id="answer-btn">
+                <!-- multiple choice style questions with 4 choices  -->
+                <button class="buttons">Choice 1</button>
+                <button class="buttons">Choice 2</button>
+                <button class="buttons">Choice 3</button>
+                <button class="buttons">Choice 4</button>
+            </div>
+            <!-- timer is started once the quiz begins same with the next button -->
+            <div id="timer">Time: <span id="time-remaining"></span></div>
+            <button id="next">Next</button>
+        </div>
+        <!-- user is able to enter their score into the highscore list, it's hidden until the end of the quiz -->
+        <div id="score-submission" style="display: none;">
+            <h2>Quiz Completed!</h2>
+            <form id="highscore-form">
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" required>
+                <input type="hidden" id="score">
+                <button  id="submit-score" type="submit">Submit Score</button>
+            </form>
+            <!-- play again button was the main problem through out the development finally got it to reset the quiz and the timer -->
+            <button id="play-again">Play Again</button>
+            <ul id="highscores-list">
+                <!-- High scores displayed here -->
+            </ul>
+        </div>
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+<footer>
+    <img src="assets/images/1850a819-8cb1-4ea9-9bbd-f3af61308058.png" alt="Cartoon Of Man With Dog">
+    <h2>A Bested and Son Venture</h2>
+  </div>
+</footer>
+</html>

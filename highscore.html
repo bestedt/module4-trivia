@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia Quiz - High Scores!</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<!-- Main body starts here, followed the same format as the main html with the class box -->
+<body>
+    <div class="box">
+        <h1>High Scores!</h1>
+        <hr>
+        <!-- link back to the main menu -->
+        <a href="main.html" id="main-link">Main Menu</a>
+        <ul id="highscores-list">
+            <!-- High scores will be displayed here -->
+        </ul>
+         <!-- user can hit the clear button to clear the current high scores  -->
+        <button id="clear-scores-button">Clear</button>
+    </div>
+<!-- Was having issues with the script for this page, was told to try putting it into the html instead and it worked! I guess with 2 htmls the script can get confused -->
+    <script>
+        // function to clear the high scores by removing them from the local storgae 
+        function clearHighScores() {
+            localStorage.removeItem("highScores");
+
+            const highscoresList = document.getElementById("highscores-list");
+            highscoresList.innerHTML = ""; 
+
+            alert("Highscores have been cleared.");
+        }
+
+        const clearScoresButton = document.getElementById("clear-scores-button");
+        if (clearScoresButton) {
+            clearScoresButton.addEventListener("click", clearHighScores);
+        }
+    </script>
+<!-- again was struggling to get the scores to display on this html, after moving the code here it finally displayed -->
+    <script>
+        
+        function displayHighScores() {
+            const highscoresList = document.getElementById("highscores-list");
+            
+            const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+            highScores.sort((a, b) => b.score - a.score);
+
+            highscoresList.innerHTML = ""; 
+
+            highScores.forEach((score, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${index + 1}. ${score.name}: ${score.score} seconds`;
+                highscoresList.appendChild(listItem);
+            });
+        }
+
+        // after establishing the function displayHighScores I kept forgetting to actually call it 
+        displayHighScores();
+    </script>
+    <script src="assets/script.js"></script>
+    <footer>
+        <img src="assets/images/1850a819-8cb1-4ea9-9bbd-f3af61308058.png" alt="Cartoon Of Man With Dog">
+        <h2>A Bested and Son Venture</h2>
+      </div>
+    </footer>
+</body>
+
+</html>
